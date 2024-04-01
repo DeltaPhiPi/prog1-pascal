@@ -11,8 +11,5 @@ begin
         n := n + 1;
         read(x);
     end;
-    writeln(sum);
-    writeln(sum2);
-    writeln(n);
     writeln('La desviación estándar es: ', sqrt(sum2/n - sqr(sum/n)));
 end.
