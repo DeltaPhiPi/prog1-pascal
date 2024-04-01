@@ -5,7 +5,7 @@ var sum: Real = 0;
 var n: Integer = 0;
 begin
     read(x);
-    while x <> -1.0 do begin
+    while x >= 0 do begin
         sum := sum + x;
         sum2 := sum2 + x * x;
         n := n + 1;
