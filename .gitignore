@@ -1,1 +1,4 @@
 new
+bases/
+**/*.o
+**/main
