@@ -2,3 +2,4 @@ new
 bases/
 **/*.o
 **/main
+.vscode/
