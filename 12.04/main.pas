@@ -158,48 +158,83 @@ begin
     end;
     l := original;
 end;
+procedure leerListaEntrada(var l: ListaInt);
+var head: ListaInt;
+begin
+    if l = nil then
+        l := new(ListaInt);
+    head := l;
+    read(head^.info);
+    while not eoln() do begin
+        new(l^.sig);
+        read(l^.sig^.info);
+        l := l^.sig;
+    end;
+    l := head;
+end;
+procedure insertarPenultimo2(elem: Integer; var l: ListaInt);
+var list,penultimo: ListaInt;
+begin
+    list := l;
+    if list <> nil then begin
+        while list^.sig <> nil do
+            list := list^.sig;
+        new(penultimo);
+        penultimo^.info := elem;
+        penultimo^.sig := list;
+        list := penultimo;
+    end;
+
+end;
 var
   head, temp, newNode: ListaInt; // Pointers to handle the linked list
   i: integer; // Loop counter
   arr: array[1..5] of integer = (2,2,2,2,2);
 begin
-  head := nil; // Initialize the head of the list to nil
+//   head := nil; // Initialize the head of the list to nil
   
-  // Create a list with elements 1 to 5
-  for i := 1 to 5 do
-  begin
-    // Create a new node
-    new(newNode);
-    newNode^.info := arr[i];
-    newNode^.sig := nil;
+//   // Create a list with elements 1 to 5
+//   for i := 1 to 5 do
+//   begin
+//     // Create a new node
+//     new(newNode);
+//     newNode^.info := arr[i];
+//     newNode^.sig := nil;
     
-    // If the list is empty, set the head to the new node
-    if head = nil then
-      head := newNode
-    else
-    begin
-      // Find the last node in the list
-      temp := head;
-      while temp^.sig <> nil do
-        temp := temp^.sig;
-      // Append the new node to the list
-      temp^.sig := newNode;
-    end;
-  end;
+//     // If the list is empty, set the head to the new node
+//     if head = nil then
+//       head := newNode
+//     else
+//     begin
+//       // Find the last node in the list
+//       temp := head;
+//       while temp^.sig <> nil do
+//         temp := temp^.sig;
+//       // Append the new node to the list
+//       temp^.sig := newNode;
+//     end;
+//   end;
   
-  // Print the elements in the list
-//   elemEnPos(1, head, el);
-//   writeln(el.ok, el.elem);   
-temp := head;
-    while temp <> nil do
-    begin
-        writeln(temp^.info);
-        temp := temp^.sig;
-    end;
-    writeln('-------------------');
-    borrarPares(head);
-    // print list
-    temp := head;
+//   // Print the elements in the list
+// //   elemEnPos(1, head, el);
+// //   writeln(el.ok, el.elem);   
+//     // temp := head;
+//     // while temp <> nil do
+//     // begin
+//     //     writeln(temp^.info);
+//     //     temp := temp^.sig;
+//     // end;
+//     // writeln('-------------------');
+//     // // borrarPares(head);
+//     // // print list
+//     // temp := head;
+//     // insertarPenultimo2(5,temp);
+    // new(temp);
+    // temp^.info := 10;
+    // temp^.sig := temp;
+    // b(temp);
+    temp := nil;
+    leerListaEntrada(temp);
     while temp <> nil do
     begin
         writeln(temp^.info);
